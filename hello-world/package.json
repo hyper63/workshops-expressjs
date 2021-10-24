@@ -1,0 +1,17 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hyper-connect": "^0.0.13"
+  },
+  "scripts": {
+    "start": "env-cmd node server.js"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
+  }
+}
