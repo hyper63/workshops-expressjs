@@ -29,7 +29,7 @@ In this intro to hyper, we will do the following:
 > 👉 Highly recommend using gitpod.io for this workshop, it will pre configure the workshop environment, 
 > if you do not want to use gitpod, see Appendix A
 
-[Open in Gitpod](https://gitpod.io#https://github.com/hyper63/workshops/tree/master/hello-world)
+[Open in Gitpod](https://gitpod.io#https://github.com/hyper63/workshops-expressjs/tree/master/hello-world)
 
 ---
 
