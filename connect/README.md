@@ -41,6 +41,8 @@ What do I need to know to take this workshop?
 - Javascript (async/await promises)
 - git/Github (you will need a github account)
 
+[Open in Gitpod](https://gitpod.io#https://github.com/hyper63/workshops-expressjs/tree/master/connect)
+
 ---
 
 ## What is hyper-connect ?
