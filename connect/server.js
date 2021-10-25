@@ -15,6 +15,9 @@ app.use(express.json())
 
 app.get('/api/characters/:id', getCharacter);
 app.post('/api/characters', createCharacter);
+app.put('/api/characters/:id', updateCharacter);
+app.delete('/api/characters/:id', removeCharacter);
+app.get('/api/characters', listCharacters);
 
 app.get('/', function (req, res) {
   res.send({ name: 'Mario Wiki API' })
