@@ -10,10 +10,14 @@
     "node-fetch": "^3.0.0"
   },
   "scripts": {
-    "start": "env-cmd --silent nodemon -q server.js"
+    "start": "nodemon -r dotenv/config -r ./register.cjs server.js"
   },
   "devDependencies": {
-    "env-cmd": "^10.1.0",
+    "dotenv": "^10.0.0",
     "nodemon": "^2.0.14"
+  },
+  "nodemonConfig": {
+    "watch": "api/*.*",
+    "ext": "*.js"
   }
 }
