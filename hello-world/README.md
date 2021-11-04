@@ -98,7 +98,7 @@ In your editor, open `api/create-characer.js` and lets do the following:
 
 ``` js
 import connect from 'hyper-connect'
-const hyper = connect(process.env['HYPER'])
+const hyper = connect(process.env['HYPER'])()
 ```
 
 - call `data.add` to add the new character document
@@ -133,7 +133,7 @@ In your editor open `api/get-character.js` and do the following:
 
 ``` js
 import connect from 'hyper-connect'
-const hyper = connect(process.env['HYPER'])
+const hyper = connect(process.env['HYPER'])()
 
 export default async function (req, res) {
   const character = await hyper.data.get(req.params.id)
