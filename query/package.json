@@ -6,13 +6,13 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
-    "hyper-connect": "^0.0.13"
+    "hyper-connect": "^0.1.6"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
     "nodemon": "^2.0.14"
   },
   "scripts": {
-    "start": "nodemon -r dotenv/config -r ./register.cjs server.js"
+    "start": "nodemon -r dotenv/config server.js"
   }
 }

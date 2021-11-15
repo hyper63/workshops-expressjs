@@ -1,6 +1,6 @@
-import connect from 'hyper-connect'
+import { connect } from 'hyper-connect'
 
-const hyper = connect(process.env['HYPER'])()
+const hyper = connect(process.env['HYPER'])
 
 await hyper.data.bulk([
   {

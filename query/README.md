@@ -83,9 +83,9 @@ In the `api/characters/_query.js` file, lets modify the `post` function to perfo
 query.
 
 ``` js
-import connect from 'hyper-connect'
+import {connect} from 'hyper-connect'
 
-const hyper = connect(process.env['HYPER'])()
+const hyper = connect(process.env['HYPER'])
 
 
 export async function post(_req, res) {

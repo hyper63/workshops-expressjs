@@ -7,7 +7,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "hyper-connect": "^0.0.13",
+    "hyper-connect": "^0.1.6",
     "node-fetch": "^3.0.0"
   },
   "devDependencies": {
@@ -15,8 +15,8 @@
     "nodemon": "^2.0.14"
   },
   "scripts": {
-    "setup": "node -r dotenv/config -r ./register.cjs setup.js",
-    "start": "nodemon -r dotenv/config -r ./register.cjs server.js"
+    "setup": "node -r dotenv/config setup.js",
+    "start": "nodemon -r dotenv/config server.js"
   },
   "nodemonConfig": {
     "watch": "api/*.*",
