@@ -491,10 +491,10 @@ http-errors@~1.7.2:
     statuses ">= 1.5.0 < 2"
     toidentifier "1.0.0"
 
-hyper-connect@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/hyper-connect/-/hyper-connect-0.1.6.tgz#196f1161216c71ad1d234aa9f4b36d11905e013a"
-  integrity sha512-P/tnHUtPGzkj+gwbQxzOfyZiSculWIc5f4/oYVBQkuFEDSdutOBrZodyI7cInPx6ULDSkM3+TDMA7ReJIpULyQ==
+hyper-connect@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/hyper-connect/-/hyper-connect-0.1.8.tgz#a2e4afd6f3df1164b31bec18f0554c07a7e8488c"
+  integrity sha512-1AEfuZ9MOtu0KrEzLGoQjCJfWOOilRYY6GqRW406MPUigCgssAM5+d5eOla2smpbI1+nCnkoVOq59SQS7wDdOA==
   dependencies:
     jose "^4.1.5"
     node-fetch "2"

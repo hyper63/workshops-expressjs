@@ -23,7 +23,7 @@ will dive a little deeper into `hyper-connect`, the deno/nodejs hyper client. Bu
 have not taken the [Hello World](../hello-world) workshop, please consider taking that workshop
 first, we will be building on the concepts we learned in previous workshops.
 
-> You'll want to complete the [Hello World](../hello-world) workshop before taking this workshop.
+> You'll want to complete the [Hello World](../data-hello-world) workshop before taking this workshop.
 
 We'll continue building out the "Mario Wiki API". We will cover all of the core hyper services. The best way to learn is by doing. In order to get the most out of these workshops, take the time to actually do the work, not just watch or copy and paste.
 
@@ -41,7 +41,7 @@ What do I need to know to take this workshop?
 - Javascript (async/await promises)
 - git/Github (you will need a github account)
 
-[Open in Gitpod](https://gitpod.io#https://github.com/hyper63/workshops-expressjs/tree/master/connect)
+[Open in Gitpod](https://gitpod.io#https://github.com/hyper63/workshops-nodejs/tree/master/connect)
 
 ---
 
@@ -102,10 +102,9 @@ Create a `.env` file in the connect folder and add your connection string as a H
 HYPER=[your connection string]
 ```
 
-In a terminal lets start our API server:
+In a terminal open in the `data-connect` folder lets start our API server:
 
 ``` sh
-cd connect
 npm run setup
 npm start
 ```
@@ -262,7 +261,7 @@ data service.
 
 In the next workshop, we will learn about the list, remove, and update methods for the hyper data service.
 
-[Next Workshop](../query)
+[Next Workshop](../data-query)
 
 > DISCLAIMER: This is example code that is mainly created to demo the features of the hyper demo service as 
 > quickly as possible, when using hyper for production, please add the proper safety checks and handle 

@@ -30,15 +30,13 @@ What do I need to know to take this workshop?
 - Javascript (async/await promises)
 - git/Github (you will need a github account)
 
-> NOTE: We will be using deno a Javascript server runtime for this workshop, https://deno.land
-
 ---
 
 ## Setup
 
 We need to initialize our project, if you have not already, launch this project in gitpod.io. 
 
-* [Launch in Gitpod](https://gitpod.io#https://github.com/hyper63/workshops)
+* [Launch in Gitpod](https://gitpod.io#https://github.com/hyper63/workshops-nodejs)
 * Setup Local hyper data service:
 
 Login in to https://dashboard.hyper.io and go to your 'mario-wiki-[initials]' app and copy the connection string.
@@ -50,18 +48,16 @@ HYPER=[your connection string]
 ```
 
 
-💻 In a new terminal do the following:
+💻 In a new terminal in the `data-query` folder do the following:
 
 ``` sh
-cd query
-./scripts/setup.js
+npm run setup
 ```
 
 💻 In a new terminal start our API server:
 
 ```
-cd query
-./scripts/start.sh
+npm run dev
 ```
 
 ---
@@ -83,17 +79,12 @@ In the `api/characters/_query.js` file, lets modify the `post` function to perfo
 query.
 
 ``` js
-import {connect} from 'hyper-connect'
-
-const hyper = connect(process.env['HYPER'])
-
-
-export async function post(_req, res) {
+export async function post({hyper, query}, res) {
   // 📝 NOTE: you may want to check if the game_id document exists
   // before running the query.
   const result = await hyper.data.query({
     type: 'appearance',
-    game_id: req.query.game_id
+    game_id: query.game_id
   }, { fields: ['character_id', 'character_name'] })
   
   return res.send(result.docs)
@@ -142,22 +133,131 @@ curl -X POST localhost:3000/api/games/_query?character_id=character-1 | npx pret
 
 Refactor create/update [characters, games]
 
-This refactor should use bulk to add the model, plus the relation table, maybe 
-check to see the related model exists first.
+Lets use the bulk feature to add more characters, games and appearances.
+
+Lets create a new file called `bulk.js`
+
+First, we will need to create an array of objects that would would like to
+insert/update:
+
+```js
+const data = [
+  {
+    id: "character-10",
+    type: "character",
+    name: "Toad",
+  },
+  {
+    id: "character-11",
+    type: "character",
+    name: "Yoshi",
+  },
+  {
+    id: "character-12",
+    type: "character",
+    name: "Princess Daisy",
+  },
+  {
+    id: "game-10",
+    type: "game",
+    name: "Super Mario Land",
+  },
+  {
+    id: "game-11",
+    type: "game",
+    name: "Youshi's Island",
+  },
+  {
+    id: "appearance-10",
+    type: "appearance",
+    game: {
+      id: "game-10",
+      name: "Super Mario Land",
+    },
+    character: {
+      id: "character-12",
+      name: "Princess Daisy",
+    },
+  },
+];
+```
+
+Now, lets import `hyper-connect` at the top of the file.
+
+```js
+import { connect } from "hyper-connect";
+
+const hyper = connect(process.env.HYPER);
+```
+
+And after the data, lets add our code to call the bulk command:
+
+```js
+console.log(
+  await hyper.data.bulk(data),
+);
+```
+
+Run it!
+
+```sh
+node -r dotenv/config bulk.js
+```
+
+Yay! We just inserted or updated documents into our hyper data service.
+
+If you want to delete any documents via a batch you simply include a `_deleted`
+flag with the value of `true`.
+
+```js
+await hyper.data.bulk([
+  {
+    id: "appearance-10",
+    _deleted: true,
+  },
+]);
+```
+
+This is nice, because if you want to delete some documents, you can compose a
+query, then a map function then a bulk.
+
+Here is an example that could be to remove all related appearances when a game
+is deleted.
+
+```js
+const assoc = (key, value) =>
+  (obj) => {
+    obj[key] = value;
+    return obj;
+  };
+
+return hyper.data.query({ type: "appearance", "game.id": "game-1" })
+  .then((result) => result.docs)
+  .then((docs) => docs.map(assoc("_deleted", true)))
+  .then(hyper.data.bulk)
+  .then((result) => hyper.data.remove("game-1"));
+```
 
 ---
 
 ## Summary
 
-In this workshop, we looks at two advanced features of the hyper Data service, `bulk` and `query`. With `bulk` you can provide an array of documents and the bulk service can insert, update or remove these documents in a batch process. Using the `query` method, you can provide complex query filters against your data store in an object syntax. By combining these selectors you can narrow your returned list, which can be sorted and only return specific fields in the documents. The `query` method provides you a rich set of tools to create specific result sets.
+In this workshop, we looks at two advanced features of the hyper Data service,
+`bulk` and `query`. With `bulk` you can provide an array of documents and the
+bulk service can insert, update or remove these documents in a batch process.
+Using the `query` method, you can provide complex query filters against your
+data store in an object syntax. By combining these selectors you can narrow your
+returned list, which can be sorted and only return specific fields in the
+documents. The `query` method provides you a rich set of tools to create
+specific result sets.
 
 ## Did you enjoy this workshop?
 
 - [Subscribe to hyper videos](https://youtube.com/c/hypervideos)
 
-In the next workshop, we will learn about the list, remove, and update methods for the hyper data service.
+In the next workshop, we will learn about hyper cache service and create counters.
 
-[Next Workshop](../)
+[Next Workshop](../cache-counters)
 
 > DISCLAIMER: This is example code that is mainly created to demo the features of the hyper demo service as 
 > quickly as possible, when using hyper for production, please add the proper safety checks and handle 
