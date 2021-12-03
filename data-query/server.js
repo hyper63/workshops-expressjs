@@ -13,6 +13,10 @@ import {
 } from "./api/characters/index.js";
 
 import {
+  post as handleCharactersByGame
+} from "./api/characters/_query.js"
+
+import {
   del as handleRemoveGame,
   get as handleGetGame,
   put as handleUpdateGame,
@@ -22,6 +26,10 @@ import {
   get as handleListGames,
   post as handleCreateGame,
 } from "./api/games/index.js";
+
+import {
+  post as handleGamesByCharacter
+} from "./api/games/_query.js"
 
 const hyper = connect(process.env.HYPER)
 const app = express()
@@ -41,15 +49,17 @@ app.get("/api/characters/:id", handleGetCharacter);
 app.put("/api/characters/:id", handleUpdateCharacter);
 app.delete("/api/characters/:id", handleRemoveCharacter);
 app.get("/api/characters", handleListCharacters);
+app.post('/api/characters/_query', handleCharactersByGame)
 
 app.post("/api/games", handleCreateGame);
 app.get("/api/games/:id", handleGetGame);
 app.put("/api/games/:id", handleUpdateGame);
 app.delete("/api/games/:id", handleRemoveGame);
 app.get("/api/games", handleListGames);
+app.post('/api/games/_query', handleGamesByCharacter)
 
 app.all("*", (_req, res) => res.setStatus(404).send({ msg: "not found" }));
 
 
 app.listen(3000)
-console.log("server has started on http://localhost:3000 🚀"),
+console.log("server has started on http://localhost:3000 🚀")
