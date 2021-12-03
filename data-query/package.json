@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
-    "hyper-connect": "^0.1.6"
+    "hyper-connect": "^0.1.8"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",

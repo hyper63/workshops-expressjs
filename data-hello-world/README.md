@@ -29,7 +29,7 @@ In this intro to hyper, we will do the following:
 > 👉 Highly recommend using gitpod.io for this workshop, it will pre configure the workshop environment, 
 > if you do not want to use gitpod, see Appendix A
 
-[Open in Gitpod](https://gitpod.io#https://github.com/hyper63/workshops-expressjs/tree/master/hello-world)
+[Open in Gitpod](https://gitpod.io#https://github.com/hyper63/workshops-nodejs/tree/master/hello-world)
 
 ---
 
@@ -56,13 +56,13 @@ a `.env` file
 HYPER=[connection string here]
 ```
 
-> NOTE: make sure you are in the `hello-world` directory in the workshops repo
+> NOTE: make sure you are in the `data-hello-world` directory in the workshops repo
 
 ---
 
 🚀 Now we are ready to start the server! 🚀
 
-> NOTE: make sure you are in a terminal in the `hello-world` directory
+> NOTE: make sure you are in a terminal in the `data-hello-world` directory
 
 ``` sh
 npm start
@@ -189,7 +189,7 @@ able to create and read json documents with very clear commands.
 
 In the next workshop, we will learn about the list, remove, and update methods for the hyper data service.
 
-[Next Workshop](../connect)
+[Next Workshop](../data-connect)
 
 > DISCLAIMER: This is example code that is mainly created to demo the features of the hyper demo service as 
 > quickly as possible, when using hyper for production, please add the proper safety checks and handle 

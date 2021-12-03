@@ -3,24 +3,25 @@
 
 ---
 
+## Welcome
+
+Thank you for choosing to learn hyper using hyper workshops, these workshops are short demos that introduce you to the hyper API. Each workshop is about 15 to 30 minutes long. In this repo the workshops are built with NodeJS, ExpressJS and Javascript. 
+
 ## Getting Started
 
 The best way to do these workshops is to use gitpod.io
 
-🚀[Launch Workspace](https://gitpod.io#https://github.com/hyper63/workshops-expressjs/tree/master) 🚀
+🚀[Launch Workspace](https://gitpod.io#https://github.com/hyper63/workshops-nodejs/tree/master) 🚀
 
 ## Workshops
 
+> Workshop status: ✅ - Ready | ⚙️ - In Progress | 🔮 - Todo
+
 ### Data
 
-- [✅ Hello World](/hello-world)
-- [✅ Connect](/connect)
-- [⚙️ Query](/query)
-
-### Storage
-
-- [🔮 Uploading Files](/upload)
-- [🔮 Downloading Files](/download)
+- [✅ Hello World](/data-hello-world)
+- [✅ Connect](/data-connect)
+- [✅ Query](/query)
 
 ### Cache
 
@@ -30,6 +31,11 @@ The best way to do these workshops is to use gitpod.io
 ### Search
 
 - [🔮 Search](/search)
+
+### Storage
+
+- [🔮 Uploading Files](/upload)
+- [🔮 Downloading Files](/download)
 
 ### Queue
 
