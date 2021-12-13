@@ -153,15 +153,15 @@ Add some characters
 
 ``` curl
 curl -X POST localhost:3000/api/characters -H 'content-type: application/json' \
--d '{"id": "1", "name": "Mario", "description": "Leading character in Mario Universe" }'
+-d '{"id": "character-1", "name": "Mario", "description": "Leading character in Mario Universe" }'
 
 
 curl -X POST localhost:3000/api/characters -H 'content-type: application/json' \
--d '{"id": "2", "name": "Luigi", "description": "Marios partner" }'
+-d '{"id": "character-2", "name": "Luigi", "description": "Marios partner" }'
 
 
 curl -X POST localhost:3000/api/characters -H 'content-type: application/json' \
--d '{"id": "3", "name": "Bowser", "description": "Marios number one enemy" }'
+-d '{"id": "character-3", "name": "Bowser", "description": "Marios number one enemy" }'
 
 ```
 
