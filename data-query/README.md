@@ -2,6 +2,8 @@
 <p align="center">In this workshop, we will explore the hyper Data query and bulk service methods. With these two powerful methods you can
 accomplish so much of your complex data needs without having to tightly couple your business logic to the persistent data service.</p>
 
+> The future Blueberry release is scheduled for 1/17/2022.  It will include a swap of the id field to the _id field for the primary key on data documents. 
+
 ---
 
 ## Table of Contents
@@ -51,6 +53,7 @@ HYPER=[your connection string]
 💻 In a new terminal in the `data-query` folder do the following:
 
 ``` sh
+npm install
 npm run setup
 ```
 
@@ -84,15 +87,15 @@ export async function post({hyper, query}, res) {
   // before running the query.
   const result = await hyper.data.query({
     type: 'appearance',
-    game_id: query.game_id
-  }, { fields: ['character_id', 'character_name'] })
+    'game.id': query.game_id
+  }, { fields: ['character.id', 'character.name'] })
   
   return res.send(result.docs)
 }
 ```
 
 With `hyper.data.query` we can provide a query object that requests to filter all documents using the following criteria: the document type should equal 'appearance' and
-the document `game_id` should equal the `game_id` being provided on the query string. 
+the document `game.id` should equal the `game.id` being provided on the query string. 
 
 #### About the hyper.data.query method
 
@@ -143,32 +146,32 @@ insert/update:
 ```js
 const data = [
   {
-    id: "character-10",
+    _id: "character-10",
     type: "character",
     name: "Toad",
   },
   {
-    id: "character-11",
+    _id: "character-11",
     type: "character",
     name: "Yoshi",
   },
   {
-    id: "character-12",
+    _id: "character-12",
     type: "character",
     name: "Princess Daisy",
   },
   {
-    id: "game-10",
+    _id: "game-10",
     type: "game",
     name: "Super Mario Land",
   },
   {
-    id: "game-11",
+    _id: "game-11",
     type: "game",
     name: "Youshi's Island",
   },
   {
-    id: "appearance-10",
+    _id: "appearance-10",
     type: "appearance",
     game: {
       id: "game-10",
@@ -212,7 +215,7 @@ flag with the value of `true`.
 ```js
 await hyper.data.bulk([
   {
-    id: "appearance-10",
+    _id: "appearance-10",
     _deleted: true,
   },
 ]);

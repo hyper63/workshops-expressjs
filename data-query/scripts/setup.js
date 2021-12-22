@@ -4,22 +4,22 @@ const hyper = connect(process.env.HYPER)
 
 const characters = [
   {
-    "id": "character-1",
+    "_id": "character-1",
     "type": "character",
     "name": "Mario",
   },
   {
-    "id": "character-2",
+    "_id": "character-2",
     "type": "character",
     "name": "Luigi",
   },
   {
-    "id": "character-3",
+    "_id": "character-3",
     "type": "character",
     "name": "Princess Peach",
   },
   {
-    "id": "character-4",
+    "_id": "character-4",
     "type": "character",
     "name": "Bowser",
   },
@@ -31,22 +31,22 @@ console.log(
 
 const games = [
   {
-    "id": "game-1",
+    "_id": "game-1",
     "type": "game",
     "name": "Donkey Kong",
   },
   {
-    "id": "game-2",
+    "_id": "game-2",
     "type": "game",
     "name": "Super Mario Bros",
   },
   {
-    "id": "game-3",
+    "_id": "game-3",
     "type": "game",
     "name": "Smash Bros",
   },
   {
-    "id": "game-4",
+    "_id": "game-4",
     "type": "game",
     "name": "Super Mario Maker",
   },
@@ -58,7 +58,7 @@ console.log(
 
 const appearances = [
   {
-    id: "appearance-1",
+    _id: "appearance-1",
     type: "appearance",
     game: {
       id: "game-1",
@@ -70,7 +70,7 @@ const appearances = [
     },
   },
   {
-    id: "appearance-2",
+    _id: "appearance-2",
     type: "appearance",
     game: {
       id: "game-2",
@@ -82,7 +82,7 @@ const appearances = [
     },
   },
   {
-    id: "appearance-3",
+    _id: "appearance-3",
     type: "appearance",
     game: {
       id: "game-2",
