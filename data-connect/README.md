@@ -1,6 +1,9 @@
 <h1 align="center">⚡️ hyper connect workshop ⚡️</h1>
 <p align="center">In this workshop, we will dive deeper into hyper-connect and learn some more Data service methods</p>
 
+> The future Blueberry release is scheduled for 1/17/2022.  It will include a swap of the id field to the _id field for the primary key on data documents. 
+
+
 ---
 
 ## Table of Contents
@@ -77,7 +80,7 @@ Content-Type: application/json
 Authorization: Bearer ${token}
 
 {
-  "id": "character-1",
+  "_id": "character-1",
   "name": "Mario",
   "description": "Mario is the central character of the Mario universe and is a plumber by trade."
 }
@@ -105,6 +108,7 @@ HYPER=[your connection string]
 In a terminal open in the `data-connect` folder lets start our API server:
 
 ``` sh
+npm install
 npm run setup
 npm start
 ```
@@ -140,7 +144,7 @@ In a new terminal window:
 ``` sh
 curl -X PUT localhost:3000/api/characters/character-1 \
 -H 'Content-Type: application/json' \
--d '{"id": "1", "type": "character", "name": "Mario", "description": "updating mario document" }'
+-d '{"_id": "1", "type": "character", "name": "Mario", "description": "updating mario document" }'
 ```
 
 ---
